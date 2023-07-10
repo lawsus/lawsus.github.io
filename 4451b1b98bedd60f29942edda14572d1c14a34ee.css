@@ -858,6 +858,69 @@ input[type="number"].input-hide-arrows {
 /** Conditional style when a content-editable root is editable */
 /** Conditional style when an element is or is inside a focused contentEditable. */
 /** Conditional styles for :after when we are composing text */
+/* ==================================================================== */
+/* Layout components
+/* 
+/* See Layout.tsx
+/* ==================================================================== */
+/**
+ * The Notion grid
+ *
+ *  FULL         CONTENT                        CONTENT         FULL
+ *  ┌─           ┌─                                  ─┐           ─┐
+ *  │            │                                    │            │
+ *  │            │                                    │            │
+ *  │    1fr     │       var(--content-width)         │    1fr     │
+ *  │            │                                    │            │
+ *  │            │                                    │            │
+ *  └─           └─                                  ─┘           ─┘
+ *
+ */
+.layout {
+    display: grid
+    }
+/**
+ * Place content in the centered "content" area
+ */
+.layout-content {
+    grid-column: content
+    }
+/**
+ * Place content spanning the entire grid
+ */
+.layout-full {
+    grid-column: full
+    }
+/**
+ * Place content in the left margin
+ */
+.layout-margin-left {
+    grid-column: full-start/content-start
+    }
+/**
+ * Place content in the right margin
+ */
+.layout-margin-right {
+    grid-column: content-end/full-end
+    }
+/**
+ * A nested grid which can serve as a container for child layout components.
+ */
+.layout-nested-grid {
+    grid-column: full;
+    display: grid;
+    grid-template-columns: inherit
+    }
+/**
+ * A utility class which can make a layout component (usually a full-width one)
+ * scrollable.
+ */
+.layout-margin-scrollable {
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none
+    }
 /*!*************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/react-datetime.css ***!
   \*************************************************************************************/
@@ -1362,6 +1425,17 @@ table > tr {
     }
 .notion-dark-theme .token.deleted, .notion-dark-theme .token.deleted + .token.line {
     color: red
+    }
+/*!**********************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/github-gist.css ***!
+  \**********************************************************************************/
+/* This css is to override github gist's default css that adds extra top and bottom padding when embedded in notion */
+.notion-gist-block .gist-data {
+    display: flex
+    }
+.notion-gist-block .gist, .notion-gist-block .gist-file, .notion-gist-block .gist-data div {
+    display: flex;
+    flex-direction: column
     }
 /*!********************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/react-pdf.css ***!
