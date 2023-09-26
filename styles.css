@@ -72,3 +72,12 @@ footer {
     color: #fff;
     padding: 10px 0;
 }
+
+.project-link a {
+    color: #0077cc;
+    text-decoration: none;
+}
+
+.project-link a:hover {
+    text-decoration: underline;
+}
