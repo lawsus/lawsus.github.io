@@ -17,12 +17,12 @@
 
     <nav>
         <ul class="center-nav">
-            <li><a href="#blogs">Blogs</a></li>
             <li><a href="#about">About Me</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#blogs">Blogs</a></li>
         </ul>
     </nav>
 
@@ -30,13 +30,6 @@
         <p>Links: [<a href="https://www.linkedin.com/in/daniel-ko-63727021a/">LinkedIn</a>] [<a
                 href="https://github.com/lawsus">GitHub</a>] [<a href="mailto:dk31@illinois.edu">Email</a>]</p>
         <hr />
-
-        <section id="blogs">
-            <h2>Blogs</h2>
-            <ul>
-                <li><a href="blogs/numpy-broadcasting.html">NumPy Broadcasting</a></li>
-            </ul>
-        </section>
 
         <section id="about">
             <h2>About Me</h2>
@@ -91,7 +84,7 @@
 
         <section id="skills">
             <h2>Skills</h2>
-            <p><i>Programming Languages</i>: Python, Java, C++, Javascript, C</p>
+            <p><i>Programming Languages</i>: Python, C++, Java, C, Javascript, MIPS Assembly</p>
             <p><i>Web Development</i>: React.js, Node.js, Express.js, Flask</p>
             <p><i>Cloud & DevOps</i>: AWS Lambda, Amazon DynamoDB, Amazon API Gateway, Git</p>
             <p><i>Data Science & ML</i>: NumPy, Pandas, scikit-learn</p>
@@ -100,28 +93,54 @@
 
         <section id="experience">
             <h2>Experience</h2>
-            <p><b>Tutor</b> | <i>2021 - present</i></p>
-            <ul>
-                <li>Provided tutoring to middle and high school students in various subjects, including Java, Python, AP
-                    Computer Science A, precalculus, AP Calculus AB/BC, and SAT preparation</li>
-                <li>Adjusted teaching strategies to meet the unique needs of each student, resulting in improved
-                    academic performance</li>
-            </ul>
+            <div class="experience-item">
+                <p><b>Undergraduate Research Assistant, Caesar Research Group PeopleWeave</b> | <i>Sep 2023 - present</i></p>
+                <ul>
+                    <li>Joined 9/25/23</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <p><b>Tutor</b> | <i>2021 - present</i></p>
+                <ul>
+                    <li>Provided tutoring to middle and high school students in various subjects, including Java,
+                        Python, AP
+                        Computer Science A, precalculus, AP Calculus AB/BC, and SAT preparation</li>
+                    <li>Adjusted teaching strategies to meet the unique needs of each student, resulting in improved
+                        academic performance</li>
+                </ul>
+            </div>
         </section>
 
         <section id="projects">
             <h2>Projects</h2>
-            <!-- Compilers -->
             <div class="project-item">
                 <p><b>Math Interpreter</b> | <i>Python, Flask</i></p>
                 <p class="project-link"><a href="https://github.com/lawsus/math-interpreter">View on GitHub</a></p>
                 <ul>
-                    <li>Developed a math interpreter consisting of a lexer, parser, and evaluator to deepen my
-                        understanding of interpreters</li>
-                    <li>Hosted the interpreter as a Flask web app, displaying the generated abstract syntax tree for
-                        visualization</li>
+                    <li>Built a Flask web app consisting of a lexer, parser, and evaluator for accurate mathematical
+                        expression interpretation and result computation</li>
+                    <li>Displays the generated Abstract Syntax Trees (AST) for each evaluated expression, providing
+                        insight into the expression's structure and computation process.</li>
                 </ul>
             </div>
+            <div class="project-item">
+                <p><b>Virtual Py</b> | <i>Python</i></p>
+                <p class="project-link"><a href="https://github.com/lawsus/virtual-py">View on GitHub</a></p>
+                <ul>
+                    <li>Created a Discord bot to read, write, and execute Python scripts directly within Discord,
+                        utilizing an in-memory simulated file system for organized script storage and execution</li>
+                    <li><i>In progress</i>: Implement essential security measures such as rate limiting, execution
+                        timeouts, and restricted access to sensitive Python modules to prevent the execution of
+                        malicious code</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="blogs">
+            <h2>Blogs</h2>
+            <ul>
+                <li><a href="blogs/numpy-broadcasting.html">NumPy Broadcasting</a></li>
+            </ul>
         </section>
     </main>
 

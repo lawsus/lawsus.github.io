@@ -73,6 +73,10 @@ footer {
     padding: 10px 0;
 }
 
+.experience-item {
+    margin-bottom: 5px;
+}
+
 .project-link a {
     color: #0077cc;
     text-decoration: none;
@@ -80,4 +84,8 @@ footer {
 
 .project-link a:hover {
     text-decoration: underline;
+}
+
+.project-item {
+    margin-bottom: 5px;
 }
