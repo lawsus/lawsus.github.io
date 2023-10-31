@@ -1,91 +1,152 @@
-body,
-h1,
-h2,
-p,
-ul,
-li,
-a {
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-p {
-    line-height: 1.25;
-}
-
-ul {
-    padding-left: 20px;
-}
-
-.center-nav {
-    display: flex;
-    justify-content: center;
-    list-style-type: none;
-    padding: 0;
-}
-
-body {
-    font-family: Times, sans-serif;
-}
-
 header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1px 0;
-}
-
-header h1 {
-    font-size: 2em;
+    /* background-color: #f7f7f7; */
+    padding: 10px 20px;
+    /* border-bottom: 1px solid #ddd; */
 }
 
 nav ul {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    background-color: #444;
-    padding: 10px;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 nav li {
-    margin-right: 20px;
+    margin: 0 10px;
 }
 
 nav a {
+    color: #555;
     text-decoration: none;
-    color: #fff;
-    font-weight: bold;
+    padding: 5px 10px;
 }
 
-main {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-}
-
-section {
-    margin-bottom: 30px;
-}
-
-footer {
-    text-align: center;
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-}
-
-.experience-item {
-    margin-bottom: 5px;
-}
-
-.project-link a {
-    color: #0077cc;
-    text-decoration: none;
-}
-
-.project-link a:hover {
+nav a:hover {
     text-decoration: underline;
 }
 
+main {
+    display: flex;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.sidebar {
+    width: 25%;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar img {
+    max-width: 100px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.content {
+    width: 75%;
+    padding: 20px;
+}
+
+.content h2 {
+    margin-top: 0;
+}
+
+/* You might want to add additional styling for icons if you have them */
+.location-icon, .twitter-icon, .github-icon, .scholar-icon, .pubmed-icon, .orcid-icon {
+    margin-right: 5px;
+}
+
+.custom-list {
+    list-style-type: disc;  /* This ensures bullet points are shown */
+    padding-left: 30px;    /* Adjust as necessary to align bullet points */
+}
+
+.custom-list li {
+    margin-bottom: 5px;    /* This gives space between each bullet point. Adjust as needed. */
+}
+
+.container {
+    max-width: 60%; /* This will leave 20% on each side (100% - 60% = 40%, divided by 2 = 20% on each side) */
+    margin: 0 auto; /* This centers the container */
+}
+
+.header-wrapper {
+    /* background-color: #f7f7f7; */
+    border-bottom: 1px solid #ddd;
+}
+
+header {
+    padding: 10px 20px;
+}
+
+/* Existing styles remain unchanged */
+
+.experience-item {
+    margin-bottom: 20px;
+}
+
+.experience-item p:first-of-type {
+    margin-bottom: 5px; /* Adjust this value as needed to bring the two lines closer or farther apart */
+}
+
+.experience-item p:nth-of-type(2) {
+    margin-top: 0; /* This ensures there's no additional space added to the top of the second <p> element */
+}
+
+.experience-item li + li {
+    margin-top: 5px;   /* Adds a small margin between list items */
+}
+
 .project-item {
-    margin-bottom: 5px;
+    margin-bottom: 30px;
+}
+
+.project-item li + li {
+    margin-top: 5px;   /* Adds a small margin between list items */
+}
+
+.blog-item {
+    border: 1px solid #ddd; /* Adds a border around the blog item */
+    padding: 15px; /* Adds some space inside the blog item */
+    margin-bottom: 20px; /* Adds some space between blog items */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.blog-item:hover {
+    background-color: #f9f9f9; /* Light gray background on hover */
+}
+
+.blog-date {
+    color: #999; /* Grayish color for date */
+    font-size: 0.9em; /* Smaller font size for date */
+    margin-bottom: 5px; /* Adds some space below the date */
+}
+
+.blog-title {
+    margin: 0; /* Removes the default margin */
+    font-size: 1.5em; /* Bigger font size for the title */
+}
+
+.blog-title a {
+    color: #333; /* Dark color for the link */
+    text-decoration: none; /* Removes underline from link */
+}
+
+.blog-title a:hover {
+    text-decoration: underline; /* Adds underline to link on hover */
+}
+
+.blog-description {
+    margin-top: 10px; /* Adds some space above the description */
 }
