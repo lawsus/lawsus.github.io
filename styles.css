@@ -150,3 +150,41 @@ header {
 .blog-description {
     margin-top: 10px; /* Adds some space above the description */
 }
+
+.experience-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left, .right {
+    margin: 0; /* Remove default margins to make sure the alignment looks clean */
+}
+
+.experience-item {
+    margin-bottom: 30px; /* Increase the gap between experience items */
+}
+
+.experience-item ul {
+    margin-top: 5px;     /* Decrease the gap between the experience entry and the bullet points */
+    padding-left: 15px;  /* Optionally, decrease indentation of bullet points */
+}
+
+.experience-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left, .right {
+    margin: 0; /* This retains the removal of default margins for cleaner alignment */
+}
+
+.project-item ul {
+    margin-top: 5px;     /* Decrease the gap between the project entry and the bullet points */
+    padding-left: 20px;  /* Adjust indentation of bullet points */
+}
+
+.project-item p {
+    margin-bottom: 5px;  /* Decrease spacing between the project title and the bullet points */
+}
