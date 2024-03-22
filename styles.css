@@ -158,6 +158,25 @@ header {
 }
 
 .left, .right {
+    margin: 0; /* Remove default margins to make sure the alignment looks clean */
+}
+
+.experience-item {
+    margin-bottom: 30px; /* Increase the gap between experience items */
+}
+
+.experience-item ul {
+    margin-top: 5px;     /* Decrease the gap between the experience entry and the bullet points */
+    padding-left: 15px;  /* Optionally, decrease indentation of bullet points */
+}
+
+.experience-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left, .right {
     margin: 0; /* This retains the removal of default margins for cleaner alignment */
 }
 
@@ -171,32 +190,3 @@ header {
 }
 
 
-.experience-item {
-    margin-bottom: 30px; /* Increase the gap between experience items */
-  }
-  
-  .experience-item ul {
-    margin-top: 5px; /* Decrease the gap between the experience entry and the bullet points */
-    padding-left: 15px; /* Optionally, decrease indentation of bullet points */
-  }
-  
-  .experience-entry {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .left, .right {
-    margin: 0; /* This retains the removal of default margins for cleaner alignment */
-  }
-  
-  .left {
-    flex-grow: 1; /* Allow the company name/location to take up available space */
-    text-align: left;
-  }
-  
-  .right {
-    flex-grow: 1; /* Allow the job title/time span to take up available space */
-    text-align: right;
-  }
-  
