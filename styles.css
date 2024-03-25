@@ -1,157 +1,86 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-header {
-    /* background-color: #f7f7f7; */
-    padding: 10px 20px;
-    /* border-bottom: 1px solid #ddd; */
-}
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
     display: flex;
-    justify-content: space-between;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-nav li {
-    margin: 0 10px;
-}
-nav a {
-    color: #555;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    margin: 0;
+    background-color: #ffffff; /* White background for the site */
+  }
+  
+  .card {
+    width: 350px;
+    height: 500px;
+    background: linear-gradient(180deg, #ffffff, #add8e6);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
+  }
+  
+  .card:hover {
+    transform: scale(1.05); /* Slightly increase size */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow for depth */
+  }
+  
+  .card-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .profile-pic {
+    width: 140px; /* Profile picture size */
+    height: 140px;
+    border-radius: 50%;
+    border: 4px solid #ffffff; /* White border around the profile picture */
+    object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .card-body {
+    padding: 0px;
+    padding-bottom: 20px;
+    text-align: center;
+    flex-grow: 1; /* Allow card body to grow and push links down */
+  }
+  
+.card-body p {
+    margin: 5px;
+    padding: 10px 0; /* Space out text elements */
+    color: #333333; /* Darker text for better contrast */
+    font-size: 1.3em; /* Increase text size for readability */
+  }
+
+  .card-body h1{
+    margin-bottom: 5px; /* Remove default margins */
+    padding: 0px; /* Remove default padding */
+    color: #333333; /* Darker text for better contrast */
+  }
+  
+  
+  .links {
+    width: 100%; /* Ensures the container spans the full width of the card */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Centers child elements horizontally in the container */
+    align-items: center; /* Centers child elements vertically in the container */
+    margin-bottom: 30px; /* Adds some space below the links */
+    flex-direction: column; /* Stacks links vertically */
+  }
+  
+  .links a {
+    margin: 10px 0; /* Adds a little space between each link */
     text-decoration: none;
-    padding: 5px 10px;
-}
-nav a:hover {
+    color: #3498db; /* Color for the links to match the light blue theme */
+    font-weight: bold;
+    font-size: 1.1em; /* Larger font size for links */
+  }
+  
+  /* Optional: Add a hover effect for the links */
+  .links a:hover {
     text-decoration: underline;
-}
-main {
-    display: flex;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px 0;
-}
-.sidebar {
-    width: 25%;
-    padding: 20px;
-    border-right: 1px solid #ddd;
-}
-.sidebar img {
-    max-width: 100px;
-    display: block;
-    margin-bottom: 20px;
-}
-.content {
-    width: 75%;
-    padding: 20px;
-}
-.content h2 {
-    margin-top: 0;
-}
-/* You might want to add additional styling for icons if you have them */
-.location-icon, .twitter-icon, .github-icon, .scholar-icon, .pubmed-icon, .orcid-icon {
-    margin-right: 5px;
-}
-.custom-list {
-    list-style-type: disc;  /* This ensures bullet points are shown */
-    padding-left: 30px;    /* Adjust as necessary to align bullet points */
-}
-.custom-list li {
-    margin-bottom: 5px;    /* This gives space between each bullet point. Adjust as needed. */
-}
-.container {
-    max-width: 60%; /* This will leave 20% on each side (100% - 60% = 40%, divided by 2 = 20% on each side) */
-    margin: 0 auto; /* This centers the container */
-}
-.header-wrapper {
-    /* background-color: #f7f7f7; */
-    border-bottom: 1px solid #ddd;
-}
-header {
-    padding: 10px 20px;
-}
-/* Existing styles remain unchanged */
-.experience-item {
-    margin-bottom: 20px;
-}
-.experience-item p:first-of-type {
-    margin-bottom: 5px; /* Adjust this value as needed to bring the two lines closer or farther apart */
-}
-.experience-item p:nth-of-type(2) {
-    margin-top: 0; /* This ensures there's no additional space added to the top of the second <p> element */
-}
-.experience-item li + li {
-    margin-top: 5px;   /* Adds a small margin between list items */
-}
-.project-item {
-    margin-bottom: 30px;
-}
-.project-item li + li {
-    margin-top: 5px;   /* Adds a small margin between list items */
-}
-.blog-item {
-    border: 1px solid #ddd; /* Adds a border around the blog item */
-    padding: 15px; /* Adds some space inside the blog item */
-    margin-bottom: 20px; /* Adds some space between blog items */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
-}
-.blog-item:hover {
-    background-color: #f9f9f9; /* Light gray background on hover */
-}
-.blog-date {
-    color: #999; /* Grayish color for date */
-    font-size: 0.9em; /* Smaller font size for date */
-    margin-bottom: 5px; /* Adds some space below the date */
-}
-.blog-title {
-    margin: 0; /* Removes the default margin */
-    font-size: 1.5em; /* Bigger font size for the title */
-}
-.blog-title a {
-    color: #333; /* Dark color for the link */
-    text-decoration: none; /* Removes underline from link */
-}
-.blog-title a:hover {
-    text-decoration: underline; /* Adds underline to link on hover */
-}
-.blog-description {
-    margin-top: 10px; /* Adds some space above the description */
-}
-.experience-entry {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.left, .right {
-    margin: 0; /* Remove default margins to make sure the alignment looks clean */
-}
-
-.experience-item {
-    margin-bottom: 30px; /* Increase the gap between experience items */
-}
-
-.experience-item ul {
-    margin-top: 5px;     /* Decrease the gap between the experience entry and the bullet points */
-    padding-left: 15px;  /* Optionally, decrease indentation of bullet points */
-}
-
-.experience-entry {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.left, .right {
-    margin: 0; /* This retains the removal of default margins for cleaner alignment */
-}
-.project-item ul {
-    margin-top: 5px;     /* Decrease the gap between the project entry and the bullet points */
-    padding-left: 20px;  /* Adjust indentation of bullet points */
-}
-.project-item p {
-    margin-bottom: 5px;  /* Decrease spacing between the project title and the bullet points */
-}
+  }
+  
