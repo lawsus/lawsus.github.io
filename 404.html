@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Ko</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+</head>
+<body>
+    <div id="post-list">
+        <h1>Daniel Ko</h1>
+        <ul class="post-list">
+            <li class="post-item">
+                <span class="post-date">February 07, 2025</span>
+                <a href="/test-post.html" class="post-link" data-md="posts/test-post.md">Test Post</a>
+            </li>
+        </ul>
+    </div>
+    
+    <div id="post-content">
+        <div class="markdown-content" id="markdown-content"></div>
+    </div>
+
+    <!-- Load Prism.js and its components -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+    <script>
+        // Create custom renderer
+        const renderer = {
+            paragraph(text) {
+                // Handle footnote definitions
+                if (text.startsWith('[^')) {
+                    const match = text.match(/\[\^(\d+)\]:\s*(.*)/);
+                    if (match) {
+                        const [_, num, content] = match;
+                        return `<div class="footnote" id="fn-${num}">
+                            <sup>${num}.</sup> ${content}
+                            <a href="#fnref-${num}" class="footnote-backref">↩</a>
+                        </div>`;
+                    }
+                }
+                
+                // Handle footnote references in regular text
+                text = text.replace(/\[\^(\d+)\]/g, (match, num) => {
+                    return `<sup id="fnref-${num}"><a href="#fn-${num}">${num}</a></sup>`;
+                });
+                
+                return `<p>${text}</p>`;
+            },
+            heading(text, level) {
+                return `<h${level}>${text}</h${level}>`;
+            },
+            strong(text) {
+                return `<strong>${text}</strong>`;
+            },
+            em(text) {
+                return `<em>${text}</em>`;
+            },
+            link(href, title, text) {
+                const titleAttr = title ? ` title="${title}"` : '';
+                return `<a href="${href}"${titleAttr}>${text}</a>`;
+            },
+            code(code, language) {
+                const validLang = language || '';
+                const escapedCode = code.replace(/&/g, '&amp;')
+                                      .replace(/</g, '&lt;')
+                                      .replace(/>/g, '&gt;')
+                                      .replace(/"/g, '&quot;')
+                                      .replace(/'/g, '&#039;');
+                return `<pre><code class="language-${validLang}">${escapedCode}</code></pre>`;
+            },
+            table(header, body) {
+                return `<table>
+                    <thead>${header}</thead>
+                    <tbody>${body}</tbody>
+                </table>`;
+            },
+            tablerow(content) {
+                return `<tr>${content}</tr>`;
+            },
+            tablecell(content, flags) {
+                const type = flags.header ? 'th' : 'td';
+                return `<${type}>${content}</${type}>`;
+            },
+            blockquote(quote) {
+                return `<blockquote>${quote}</blockquote>`;
+            },
+            list(body, ordered) {
+                const type = ordered ? 'ol' : 'ul';
+                return `<${type}>${body}</${type}>`;
+            },
+            listitem(text) {
+                return `<li>${text}</li>`;
+            }
+        };
+
+        // Configure marked
+        marked.use({ renderer });
+
+        function showPostList() {
+            document.getElementById('post-list').style.display = 'block';
+            document.getElementById('post-content').style.display = 'none';
+        }
+
+        function showPost() {
+            document.getElementById('post-list').style.display = 'none';
+            document.getElementById('post-content').style.display = 'block';
+        }
+
+        async function loadPost(mdPath) {
+            try {
+                const response = await fetch(mdPath);
+                const markdown = await response.text();
+                
+                // Parse markdown
+                const htmlContent = marked.parse(markdown);
+                document.getElementById('markdown-content').innerHTML = htmlContent;
+                
+                // Re-run Prism highlighting
+                if (window.Prism) {
+                    Prism.highlightAll();
+                }
+                
+                showPost();
+
+                // Handle hash navigation after content is loaded
+                if (window.location.hash) {
+                    const element = document.querySelector(window.location.hash);
+                    if (element) {
+                        element.scrollIntoView();
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading post:', error);
+                document.getElementById('markdown-content').innerHTML = '<p>Error loading post. Please try again.</p>';
+                showPost();
+            }
+        }
+
+        // Handle URL routing
+        function handleRoute() {
+            const path = window.location.pathname;
+            
+            if (path === '/' || path === '/index.html') {
+                showPostList();
+                return;
+            }
+
+            // Find the link that matches this route
+            const link = document.querySelector(`.post-link[href="${path}"]`);
+            if (link) {
+                const mdPath = link.getAttribute('data-md');
+                loadPost(mdPath);
+            } else {
+                showPostList();
+            }
+        }
+
+        // Add click handlers to post links
+        document.querySelectorAll('.post-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                const mdPath = this.getAttribute('data-md');
+                history.pushState({}, '', href);
+                loadPost(mdPath);
+            });
+        });
+
+        // Handle browser back/forward
+        window.addEventListener('popstate', handleRoute);
+
+        // Handle initial load
+        handleRoute();
+
+        // Handle hash changes for footnote navigation
+        window.addEventListener('hashchange', function() {
+            if (window.location.hash) {
+                const element = document.querySelector(window.location.hash);
+                if (element) {
+                    element.scrollIntoView();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

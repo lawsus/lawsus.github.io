@@ -1,0 +1,195 @@
+/* Base styles */
+body {
+    font-family: "Times New Roman", Times, serif;
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 0.95rem;
+}
+
+/* Mobile-first responsive adjustments */
+@media screen and (max-width: 600px) {
+    body {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .markdown-content {
+        padding: 0.5rem;
+        border-left: none;
+        border-right: none;
+    }
+
+    /* Adjust code blocks for mobile */
+    .markdown-content pre {
+        margin-left: -0.5rem;
+        margin-right: -0.5rem;
+        padding: 0.5rem;
+        border-left: none;
+        border-right: none;
+    }
+
+    /* Adjust tables for mobile */
+    .markdown-content table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+    color: #000000;
+    margin: 1rem 0;
+}
+
+h1 {
+    text-align: center;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 10px;
+}
+
+/* Post list styles */
+#post-list {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+.post-item {
+    margin: 1.5rem 0;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.post-date {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.post-link {
+    color: #0000EE;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.post-link:visited {
+    color: #551A8B;
+}
+
+.post-link:hover {
+    color: #FF0000;
+}
+
+/* Markdown content styles */
+.markdown-content {
+    padding: 1rem;
+    border: 1px solid #000000;
+}
+
+/* Links in markdown content */
+.markdown-content a {
+    color: #5e7bed;
+    text-decoration: none;
+}
+
+.markdown-content a:visited {
+    color: #551A8B;
+}
+
+.markdown-content a:hover {
+    color: #FF0000;
+}
+
+/* Images */
+.markdown-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    border: 2px solid #000000;
+}
+
+/* Code blocks */
+.markdown-content code {
+    font-family: "Courier New", Courier, monospace;
+    background: #f8f8f8;
+    padding: 0.2em 0.4em;
+    border: 1px solid #000000;
+}
+
+.markdown-content pre code {
+    display: block;
+    padding: 1em;
+    overflow-x: auto;
+    background: #f8f8f8;
+    border: none;
+}
+
+.markdown-content pre {
+    border: 1px solid #000000;
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+
+/* Tables */
+.markdown-content table {
+    border-collapse: collapse;
+    margin: 1em 0;
+    border: 1px solid #000000;
+    table-layout: auto;
+}
+
+.markdown-content th,
+.markdown-content td {
+    border: 1px solid #000000;
+    padding: 8px;
+    text-align: left;
+}
+
+.markdown-content th {
+    background-color: #f0f0f0;
+}
+
+/* Blockquotes */
+.markdown-content blockquote {
+    border-left: 3px solid #808080;
+    margin: 1em 0;
+    padding-left: 1em;
+    color: #404040;
+    background-color: #f0f0f0;
+}
+
+/* Footnotes */
+.footnote {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: 1px solid #ccc;
+}
+
+.footnote-backref {
+    margin-left: 0.5em;
+    text-decoration: none;
+}
+
+.footnote-backref:hover {
+    text-decoration: underline;
+}
+
+/* Layout */
+#post-content {
+    display: none;
+}
