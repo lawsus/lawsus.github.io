@@ -1,6 +1,6 @@
 # Test Post
 
-*February 07, 2025*
+<p style="text-align: center;"><a href="/">Back to Home</a> | February 07, 2025</p>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum odor amet, consectetuer adipiscing elit. Lacus per dapibus ornare justo laoreet efficitur. Mi arcu ex non; lacinia aptent maecenas in. Ex pellentesque magnis taciti arcu amet praesent. Eleifend sed sapien mus ac vestibulum aptent fusce. Ante class euismod etiam nisi ullamcorper. Accumsan lobortis viverra primis, parturient elementum aenean. Cubilia urna urna ultricies, morbi interdum ipsum eu cubilia.
 
